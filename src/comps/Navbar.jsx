@@ -18,7 +18,7 @@ export default function Navbar() {
         {/* toggler + action-btn */}
         <div className="flex items-center justify-end md:order-1 gap-4">
           <figure className="w-8">
-            <img src="https://dummyimage.com/35/878787/fff&text=I" alt="" className="w-full rounded-full" />
+            <img src="/logo.png" alt="" title="No Name" className="w-full rounded-full" />
           </figure>
           <button className="px-3 py-1 rounded-md text-white bg-red-800 hover:opacity-90">Logout</button>
 
