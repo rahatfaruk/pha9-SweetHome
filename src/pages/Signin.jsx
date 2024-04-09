@@ -1,8 +1,10 @@
-import { Github, Google } from "react-bootstrap-icons";
+import { useState } from "react";
+import { Eye, EyeSlash, Github, Google } from "react-bootstrap-icons";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 
 function Signin() {
+  const [showPassword, setShowPassword] = useState(false)
 
   const handleSubmit = e => {
     e.preventDefault()
@@ -19,9 +21,12 @@ function Signin() {
             <span className="block mb-1 text-sm text-gray-600">Your email</span>
             <input type="email" name="email" className="border w-full min-w-0 px-3 py-2 rounded-md bg-gray-50" placeholder="example@mail.com" />
           </label>
-          <label className="block mb-4">
+          <label className="block mb-4 relative">
             <span className="block mb-1 text-sm text-gray-600">Your password</span>
-            <input type="password" name="password" className="border w-full min-w-0 px-3 py-2 rounded-md bg-gray-50" />
+            <input type={showPassword ? "text" : "password"} name="password" className="border w-full min-w-0 px-3 py-2 rounded-md bg-gray-50" />
+            <button type="button" onClick={() => setShowPassword(!showPassword)} className="absolute bottom-1.5 right-1.5 border. p-1 text-xl">
+              {showPassword ? <Eye/> : <EyeSlash/>}
+            </button>
           </label>
 
           <div className="mt-6">
