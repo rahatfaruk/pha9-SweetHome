@@ -1,0 +1,99 @@
+[
+  {
+    "id": 1,
+    "estate_title": "Cozy Single-Family Home",
+    "segment_name": "Single-family homes",
+    "description": "A charming single-family home with modern amenities.",
+    "price": "$300,000",
+    "status": "sale",
+    "area": "2000 sq ft",
+    "location": "123 Main Street, City, State",
+    "facilities": ["living room", "kitchen", "backyard"],
+    "image": "path/to/image.jpg"
+  },
+  {
+    "id": 2,
+    "estate_title": "Luxurious Townhouse",
+    "segment_name": "Townhouses",
+    "description": "An elegant townhouse in a prime location.",
+    "price": "$500,000",
+    "status": "sale",
+    "area": "2500 sq ft",
+    "location": "456 Elm Street, City, State",
+    "facilities": ["living room", "swimming pool", "gym"],
+    "image": "path/to/image.jpg"
+  },
+  {
+    "id": 3,
+    "estate_title": "Modern Apartment",
+    "segment_name": "Apartments",
+    "description": "A sleek apartment with panoramic views.",
+    "price": "$2,000/month",
+    "status": "rent",
+    "area": "1000 sq ft",
+    "location": "789 Oak Avenue, City, State",
+    "facilities": ["living room", "balcony", "fitness center"],
+    "image": "path/to/image.jpg"
+  },
+  {
+    "id": 4,
+    "estate_title": "Student Housing Complex",
+    "segment_name": "Student housing",
+    "description": "Convenient and comfortable student housing near campus.",
+    "price": "$800/month per room",
+    "status": "rent",
+    "area": "500 sq ft (per room)",
+    "location": "101 University Drive, City, State",
+    "facilities": ["study area", "laundry room", "common room"],
+    "image": "path/to/image.jpg"
+  },
+  {
+    "id": 5,
+    "estate_title": "Senior Living Community",
+    "segment_name": "Senior living communities",
+    "description": "A peaceful community designed for senior living.",
+    "price": "$3,000/month",
+    "status": "rent",
+    "area": "1200 sq ft",
+    "location": "555 Pine Street, City, State",
+    "facilities": ["dining hall", "garden", "library"],
+    "image": "path/to/image.jpg"
+  },
+  {
+    "id": 6,
+    "estate_title": "Scenic Vacation Rental",
+    "segment_name": "Vacation rentals",
+    "description": "A charming vacation rental with stunning views.",
+    "price": "$200/night",
+    "status": "rent",
+    "area": "800 sq ft",
+    "location": "789 Beach Boulevard, City, State",
+    "facilities": ["ocean view", "patio", "barbecue area"],
+    "image": "path/to/image.jpg"
+  },
+  {
+    "id": 7,
+    "estate_title": "Spacious Family-Friendly Home",
+    "segment_name": "Single-family homes",
+    "description": "A spacious single-family home perfect for families.",
+    "price": "$400,000",
+    "status": "sale",
+    "area": "3000 sq ft",
+    "location": "321 Maple Lane, City, State",
+    "facilities": ["family room", "backyard", "garage"],
+    "image": "path/to/image.jpg"
+  },
+  {
+    "id": 8,
+    "estate_title": "Urban Loft Apartment",
+    "segment_name": "Apartments",
+    "description": "A trendy loft apartment in the heart of the city.",
+    "price": "$2,500/month",
+    "status": "rent",
+    "area": "1500 sq ft",
+    "location": "987 Broadway Street, City, State",
+    "facilities": ["open floor plan", "city views", "fitness center"],
+    "image": "path/to/image.jpg"
+  }
+]
+
