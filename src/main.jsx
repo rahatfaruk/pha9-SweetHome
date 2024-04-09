@@ -12,7 +12,7 @@ import Home from './pages/Home/index.jsx'
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path='/' element={<App />} errorElement={<ErrorPage /> }>
-      <Route index element={<Home/>} />
+      <Route index element={<Home/>} loader={() => fetch('/estates.json')} />
       <Route path='signin' element={<Signin/>} />
       <Route path='signup' element={<Signup/>} />
     </Route>
