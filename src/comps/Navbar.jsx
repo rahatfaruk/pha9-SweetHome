@@ -4,7 +4,8 @@ import { Link, NavLink } from "react-router-dom"
 
 const navLinks = [
   {id: 1, text: 'Home', path: '/'},
-  {id: 2, text: 'Update Profile', path: '/update-profile'}
+  {id: 2, text: 'Update Profile', path: '/update-profile'},
+  {id: 3, text: 'Connect', path: '/connect'},
 ]
 
 export default function Navbar() {
