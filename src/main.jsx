@@ -8,11 +8,13 @@ import ErrorPage from './pages/ErrorPage.jsx'
 import Signin from './pages/Signin.jsx'
 import Signup from './pages/Signup.jsx'
 import Home from './pages/Home/index.jsx'
+import EstateDetails from './pages/EstateDetails.jsx'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path='/' element={<App />} errorElement={<ErrorPage /> }>
       <Route index element={<Home/>} loader={() => fetch('/estates.json')} />
+      <Route path='details/:id' element={<EstateDetails/>} />
       <Route path='signin' element={<Signin/>} />
       <Route path='signup' element={<Signup/>} />
     </Route>

@@ -9,7 +9,7 @@ function Estates({estates}) {
 
         <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-6'>
           {estates.slice(0,3).map(estate => (
-            <div className="border shadow-md rounded-md">
+            <div key={estate.id} className="border shadow-md rounded-md">
               <figure className="p-2 pb-3">
                 <img src={estate.image} className="w-full h-60 rounded-md object-cover object-bottom" alt="" />
               </figure>
