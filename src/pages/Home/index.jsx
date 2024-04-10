@@ -1,5 +1,6 @@
 import {useLoaderData} from 'react-router-dom';
 import Banner from "./Banner";
+import Estates from './Estates';
 
 function Home() {
   const estates = useLoaderData()
@@ -7,6 +8,7 @@ function Home() {
   return (  
     <div>
       <Banner estates={estates} />
+      <Estates estates={estates} />
     </div>
   );
 }
