@@ -1,4 +1,5 @@
 import { Envelope, GeoAlt, Telephone } from "react-bootstrap-icons";
+import {Helmet} from 'react-helmet';
 import Newsletter from "./Newsletter";
 import Socials from "./Socials";
 
@@ -6,6 +7,9 @@ function Connect() {
   return (  
     <section className="px-4">
       <div className="max-w-screen-xl mx-auto my-8">
+        <Helmet>
+          <title>SweetHome | Connect</title>
+        </Helmet>
         <h2 className="mb-4 md:mb-6 text-3xl md:text-4xl text-center font-semibold">Connect With Us</h2>
 
         <Newsletter />
