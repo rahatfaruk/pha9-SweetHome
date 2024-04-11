@@ -11,10 +11,15 @@ import Home from './pages/Home/index.jsx'
 import EstateDetails from './pages/EstateDetails.jsx'
 import Connect from './pages/Connect'
 import UpdateProfile from './pages/UpdateProfile.jsx'
+import AuthProvider from './context/AuthProvider.jsx'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route path='/' element={<App />} errorElement={<ErrorPage /> }>
+    <Route 
+      path='/' 
+      element={<AuthProvider> <App/> </AuthProvider>} 
+      errorElement={<ErrorPage /> }
+    >
       <Route index element={<Home/>} loader={() => fetch('/estates.json')} />
       <Route path='details/:id' element={<EstateDetails/>} />
       <Route path='update-profile' element={<UpdateProfile/>} />
