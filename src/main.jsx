@@ -12,6 +12,7 @@ import EstateDetails from './pages/EstateDetails.jsx'
 import Connect from './pages/Connect'
 import UpdateProfile from './pages/UpdateProfile.jsx'
 import AuthProvider from './context/AuthProvider.jsx'
+import RouteGuard from './comps/RouteGuard.jsx'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -20,10 +21,23 @@ const router = createBrowserRouter(
       element={<AuthProvider> <App/> </AuthProvider>} 
       errorElement={<ErrorPage /> }
     >
-      <Route index element={<Home/>} loader={() => fetch('/estates.json')} />
-      <Route path='details/:id' element={<EstateDetails/>} />
-      <Route path='update-profile' element={<UpdateProfile/>} />
-      <Route path='connect' element={<Connect/>} />
+      <Route 
+        index 
+        element={<RouteGuard> <Home/> </RouteGuard>} 
+        loader={() => fetch('/estates.json')} 
+      />
+      <Route 
+        path='details/:id' 
+        element={<RouteGuard> <EstateDetails/> </RouteGuard>} 
+      />
+      <Route 
+        path='update-profile' 
+        element={<RouteGuard> <UpdateProfile/> </RouteGuard>} 
+      />
+      <Route 
+        path='connect' 
+        element={<RouteGuard> <Connect/> </RouteGuard>} 
+      />
       <Route path='signin' element={<Signin/>} />
       <Route path='signup' element={<Signup/>} />
     </Route>

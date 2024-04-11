@@ -1,16 +1,21 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Eye, EyeSlash, Github, Google } from "react-bootstrap-icons";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import { AuthContext } from "../context/AuthProvider";
 
 function Signin() {
   const [showPassword, setShowPassword] = useState(false)
+  const {user} = useContext(AuthContext)
 
   const handleSubmit = e => {
     e.preventDefault()
     toast.error('Error: this is a custom error message')
   }
 
+  if (user) {
+    return <Navigate to='/'/>
+  }
   return (  
     <section className="px-4 md:px-6 py-8">
       <div className="max-w-md mx-auto p-4 border rounded-md shadow-md">

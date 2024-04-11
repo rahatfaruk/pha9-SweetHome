@@ -11,9 +11,7 @@ const navLinks = [
 
 export default function Navbar() {
   const [showLinks, setShowLinks] = useState(false)
-  const {user} = useContext(AuthContext)
-  // testing
-  // const user = true && {displayName: 'ariq boke', photoURL: '/logo.png'}
+  const {user, logout} = useContext(AuthContext)
 
   return (
     <nav className="px-4">
@@ -27,7 +25,7 @@ export default function Navbar() {
               <figure className="w-8 p-0.5 border rounded-full border-green-500">
                 <img src={user.photoURL} alt="" title={user.displayName} className="w-full rounded-full shadow-md" />
               </figure>
-              <button className="px-3 py-1 rounded-md text-white bg-red-800 hover:opacity-90">Logout</button>
+              <button className="px-3 py-1 rounded-md text-white bg-red-800 hover:opacity-90" onClick={logout}>Logout</button>
             </div> 
           : 
             <Link to='/signin' className="inline-block px-3 py-1 rounded-md text-white bg-green-600 hover:opacity-90">Login</Link>
