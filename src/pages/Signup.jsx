@@ -1,10 +1,13 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Eye, EyeSlash, Github, Google } from "react-bootstrap-icons";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import { AuthContext } from "../context/AuthProvider";
+import { updateProfile } from "firebase/auth";
 
 function Signup() {
   const [showPassword, setShowPassword] = useState(false)
+  const {user, setUser, createUserWithEP} = useContext(AuthContext)
 
   const handleSubmit = e => {
     e.preventDefault()
@@ -26,10 +29,24 @@ function Signup() {
     }
     // successful
     else {
-      toast.success('successfully created account');
+      const createUser = async () => {
+        try {
+          const creadential = await createUserWithEP(email, password)
+          await updateProfile(creadential.user, {displayName:name, photoURL:photoUrl})
+          toast.success('successfully created account');
+          setUser(creadential.user)
+        } catch (error) {
+          toast.error(error.message)
+          console.log(error.message);
+        }
+      }
+      createUser()
     }
   }
 
+  if (user) {
+    return <Navigate to={'/'} />
+  }
   return (  
     <section className="px-4 md:px-6 py-8">
       <div className="max-w-md mx-auto p-4 border rounded-md shadow-md">
