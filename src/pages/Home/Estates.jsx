@@ -8,7 +8,7 @@ function Estates({estates}) {
         <h2 className="mb-4 md:mb-6 text-3xl md:text-4xl text-center font-semibold">Featured Estates</h2>
 
         <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-6'>
-          {estates.slice(0,3).map(estate => (
+          {estates.slice(0,6).map(estate => (
             <div key={estate.id} className="border shadow-md rounded-md">
               <figure className="p-2 pb-3">
                 <img src={estate.image} className="w-full h-60 rounded-md object-cover object-bottom" alt="" />

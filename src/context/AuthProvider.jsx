@@ -1,11 +1,12 @@
 import { createContext, useEffect, useState } from "react";
-import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signOut } from "firebase/auth";
+import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signOut, updateProfile } from "firebase/auth";
 import { authRef } from "../../firebaseConfig";
 
 export const AuthContext = createContext(null)
 
 function AuthProvider({children}) {
   const [user, setUser] = useState(null)
+  const [toggleProfile, setToggleProfile] = useState(false)
 
   const createUserWithEP = (email, password) => {
     return createUserWithEmailAndPassword(authRef, email, password)
@@ -17,6 +18,10 @@ function AuthProvider({children}) {
 
   const logout = () => {
     return signOut(authRef)
+  }
+
+  const updateProfileInfo = (displayName, photoURL) => {
+    return updateProfile(user, {displayName, photoURL})
   }
 
   // update user onload && observe user
@@ -36,7 +41,7 @@ function AuthProvider({children}) {
   }, [])
 
   return (  
-    <AuthContext.Provider value={ {user, setUser, createUserWithEP, logout, signInWithEP} }>
+    <AuthContext.Provider value={ {user, setUser, createUserWithEP, logout, signInWithEP, updateProfileInfo, toggleProfile, setToggleProfile} }>
       {children}
     </AuthContext.Provider>
   );

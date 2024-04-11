@@ -39,8 +39,8 @@ export default function Navbar() {
           {navLinks.map(link => (
             <li key={link.id}>
               <NavLink to={link.path} className={({isActive}) => 
-                `block px-4 py-2 md:bg-transparent hover:underline hover:bg-indigo-100 
-                ${isActive ? 'text-indigo-800 bg-indigo-100 font-bold underline' : ''}`
+                `block px-4 py-2 rounded-md md:bg-transparent hover:underline hover:bg-green-100  
+                ${isActive ? 'text-green-600 bg-green-100 font-bold underline' : ''}`
               }>{link.text}</NavLink>
             </li>
           ))}

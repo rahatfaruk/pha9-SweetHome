@@ -1,13 +1,12 @@
 import { useContext, useState } from "react";
-import { Eye, EyeSlash, Github, Google } from "react-bootstrap-icons";
+import { Eye, EyeSlash } from "react-bootstrap-icons";
 import { Link, Navigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { AuthContext } from "../context/AuthProvider";
-import { updateProfile } from "firebase/auth";
 
 function Signup() {
   const [showPassword, setShowPassword] = useState(false)
-  const {user, setUser, createUserWithEP} = useContext(AuthContext)
+  const {user, updateProfileInfo, createUserWithEP} = useContext(AuthContext)
 
   const handleSubmit = e => {
     e.preventDefault()
@@ -31,8 +30,8 @@ function Signup() {
     else {
       const createUser = async () => {
         try {
-          const creadential = await createUserWithEP(email, password)
-          await updateProfile(creadential.user, {displayName:name, photoURL:photoUrl})
+          await createUserWithEP(email, password)
+          await updateProfileInfo(name, photoUrl)
           toast.success('successfully created account');
         } catch (error) {
           toast.error(error.message)
