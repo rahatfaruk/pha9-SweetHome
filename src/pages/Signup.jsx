@@ -34,7 +34,6 @@ function Signup() {
           const creadential = await createUserWithEP(email, password)
           await updateProfile(creadential.user, {displayName:name, photoURL:photoUrl})
           toast.success('successfully created account');
-          setUser(creadential.user)
         } catch (error) {
           toast.error(error.message)
           console.log(error.message);

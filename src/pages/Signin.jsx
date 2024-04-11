@@ -6,11 +6,37 @@ import { AuthContext } from "../context/AuthProvider";
 
 function Signin() {
   const [showPassword, setShowPassword] = useState(false)
-  const {user} = useContext(AuthContext)
+  const {user, signInWithEP} = useContext(AuthContext)
 
   const handleSubmit = e => {
     e.preventDefault()
-    toast.error('Error: this is a custom error message')
+    
+    const email = e.target.email.value.trim()
+    const password = e.target.password.value.trim()
+
+    const passwordPassRegex = /(?=.*[a-z])(?=.*[A-Z]).{6,}/
+
+    // all fields is not filled
+    if (!(email && password)) {
+      toast.error('you must fill all fields!')
+    }
+    // validate password: lenght >= 6, has at least 1 uppercase, 1 lowercase
+    else if( !passwordPassRegex.test(password) ) {
+      toast.error('password must be at least 6 characters long, contains at least 1 uppercase and 1 lowercase letter')
+    }
+    // successful
+    else {
+      const signIn = async () => {
+        try {
+          await signInWithEP(email, password)
+          toast.success('successfully signed in');
+        } catch (error) {
+          toast.error(error.message)
+          console.log(error.message);
+        }
+      }
+      signIn()
+    }
   }
 
   if (user) {
