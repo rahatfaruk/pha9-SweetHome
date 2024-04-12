@@ -1,0 +1,38 @@
+[
+  {
+    "id": "agent001",
+    "name": "John Smith",
+    "position": "Senior Sales Agent",
+    "phone": "+1 (123) 456-7890",
+    "image": "https://i.ibb.co/Kb97SQR/man-1.jpg",
+    "sale_amount": "32",
+    "rent_amount": "25",
+    "operating_since": 2014,
+    "buyers_served": 50,
+    "verified_properties": 30
+  },
+  {
+    "id": "agent002",
+    "name": "Emily Johnson",
+    "position": "Property Manager",
+    "phone": "+1 (987) 654-3210",
+    "image": "https://i.ibb.co/jMsRKvq/woman-1.jpg",
+    "sale_amount": "44",
+    "rent_amount": "29",
+    "operating_since": 2012,
+    "buyers_served": 40,
+    "verified_properties": 25
+  },
+  {
+    "id": "agent003",
+    "name": "Michael Chen",
+    "position": "Leasing Consultant",
+    "phone": "+1 (555) 123-4567",
+    "image": "https://i.ibb.co/JcWncnm/man-2.jpg",
+    "sale_amount": "13",
+    "rent_amount": "7",
+    "operating_since": 2018,
+    "buyers_served": 30,
+    "verified_properties": 20
+  }
+]

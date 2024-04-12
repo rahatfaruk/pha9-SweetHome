@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react';
 import { Check, CheckCircle, Phone, Telephone } from 'react-bootstrap-icons';
 import {useParams} from 'react-router-dom';
+import Agent from '../comps/Agent';
 
 function EstateDetails() {
   const [estate, setEstate] = useState(null)
+  const [agent, setAgent] = useState(null)
   const [loading, setLoading] = useState(true)
   const {id} = useParams()
 
@@ -19,6 +21,13 @@ function EstateDetails() {
       alert(err.message)
       console.log(err.message)
     })
+  }, [])
+
+  useEffect(() => {
+    fetch('/agents.json')
+    .then(res => res.json())
+    .then(data => setAgent(data[0]))
+    .catch(error => console.log(error.message))
   }, [])
 
   if(loading) {
@@ -52,23 +61,7 @@ function EstateDetails() {
           </div>
         </div>
         {/* agent */}
-        <div>
-          <div className='border p-6 rounded-md shadow-md text-sm md:min-w-80 text-center'>
-            <figure className='mb-2'>
-              <img src={'https://i.ibb.co/Kb97SQR/man-1.jpg'} alt="" className='w-24 h-24 mx-auto object-cover rounded-full' /> 
-            </figure>
-            <h3 className='text-lg font-semibold'>John David</h3>
-            <p>Agent</p>
-            <p className='text-lg my-2'>20 Sale | 14 Rent</p>
-            <ul className='space-y-1'>
-              <li className='flex items-center justify-center gap-2'><CheckCircle className='text-green-600'/> Operating Since 2013</li>
-              <li className='flex items-center justify-center gap-2'><CheckCircle className='text-green-600'/> 4212+ Buyers Served</li>
-              <li className='flex items-center justify-center gap-2'><CheckCircle className='text-green-600'/> 39 Verified Properties</li>
-            </ul>
-            <p className='flex items-center justify-center gap-2 text-base my-2'><Telephone /> 987-654-3210</p>
-            <button className='px-3 py-1 rounded-md text-green-500 border border-green-500 hover:bg-green-100'>Contact Agent</button>
-          </div>
-        </div>
+        {agent && <Agent agent={agent} />}
       </div>
     </section>
   );
