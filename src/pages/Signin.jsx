@@ -6,7 +6,7 @@ import { AuthContext } from "../context/AuthProvider";
 
 function Signin() {
   const [showPassword, setShowPassword] = useState(false)
-  const {user, signInWithEP} = useContext(AuthContext)
+  const {user, signInWithEP, signInWithGoogle} = useContext(AuthContext)
 
   const handleSubmit = e => {
     e.preventDefault()
@@ -39,6 +39,14 @@ function Signin() {
     }
   }
 
+  const handleSignInWithGoogle = async () => {
+    try {
+      await signInWithGoogle()
+    } catch (error) {
+      toast.error(error.message)
+    }
+  }
+
   if (user) {
     return <Navigate to='/'/>
   }
@@ -67,7 +75,7 @@ function Signin() {
 
         {/* other login method */}
         <div className="border-t pt-4 mt-6 space-y-4">
-          <button className="bg-blue-600 text-white w-full px-4 py-2 rounded-md flex items-center justify-center gap-3 hover:opacity-90"><Google/> Continue with Google</button>
+          <button onClick={handleSignInWithGoogle} className="bg-blue-600 text-white w-full px-4 py-2 rounded-md flex items-center justify-center gap-3 hover:opacity-90"><Google/> Continue with Google</button>
           <button className="bg-gray-800 text-white w-full px-4 py-2 rounded-md flex items-center justify-center gap-3 hover:opacity-90"><Github/> Continue with Github</button>
         </div>
 
