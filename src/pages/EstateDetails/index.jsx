@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
 import { Check, CheckCircle, Phone, Telephone } from 'react-bootstrap-icons';
 import {useParams} from 'react-router-dom';
-import Agent from '../comps/Agent';
+import Agent from '../../comps/Agent';
+import Leaflet from './Leaflet';
 
 function EstateDetails() {
   const [estate, setEstate] = useState(null)
@@ -61,7 +62,10 @@ function EstateDetails() {
           </div>
         </div>
         {/* agent */}
-        {agent && <Agent agent={agent} />}
+        <div>
+          {agent && <Agent agent={agent} />}
+          <Leaflet />
+        </div>
       </div>
     </section>
   );
