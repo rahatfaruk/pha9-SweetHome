@@ -1,12 +1,10 @@
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
 import {Helmet} from 'react-helmet';
-import {useNavigate} from 'react-router-dom';
 import {toast} from 'react-toastify';
 import { AuthContext } from '../context/AuthProvider';
-import { authRef } from '../../firebaseConfig';
 
 function UpdateProfile() {
-  const {user, updateProfileInfo, toggleProfile, setToggleProfile} = useContext(AuthContext)
+  const {user, updateProfileInfo, setUser} = useContext(AuthContext)
   const handleSubmit = async (e) => {
     e.preventDefault()
 
@@ -17,12 +15,11 @@ function UpdateProfile() {
     try {
       await updateProfileInfo(name, photoUrl);
       toast.success('Successfully updated profile!')
-      setToggleProfile(!toggleProfile)
+      setUser( {...user, displayName:name, photoURL:photoUrl} )
     } catch (error) {
       toast.error('update failed! ' + error.message)
     }
   }
-  console.log(user);
 
   return (  
     <section className='px-4'>

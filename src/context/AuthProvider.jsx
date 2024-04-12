@@ -6,7 +6,6 @@ export const AuthContext = createContext(null)
 
 function AuthProvider({children}) {
   const [user, setUser] = useState(null)
-  const [toggleProfile, setToggleProfile] = useState(false)
 
   const createUserWithEP = (email, password) => {
     return createUserWithEmailAndPassword(authRef, email, password)
@@ -41,7 +40,7 @@ function AuthProvider({children}) {
   }, [])
 
   return (  
-    <AuthContext.Provider value={ {user, setUser, createUserWithEP, logout, signInWithEP, updateProfileInfo, toggleProfile, setToggleProfile} }>
+    <AuthContext.Provider value={ {user, setUser, createUserWithEP, logout, signInWithEP, updateProfileInfo} }>
       {children}
     </AuthContext.Provider>
   );
