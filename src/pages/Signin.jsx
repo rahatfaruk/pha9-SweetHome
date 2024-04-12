@@ -60,8 +60,8 @@ function Signin() {
   }
   return (  
     <section className="px-4 md:px-6 py-8">
-      <div className="max-w-md mx-auto p-4 border rounded-md shadow-md">
-        <h2 className="text-2xl md:text-3xl font-semibold text-center mb-6">Sign in</h2>
+      <div className="max-w-md mx-auto p-4 border rounded-md shadow-md animate__animated animate__fadeIn">
+        <h2 className="text-2xl md:text-3xl font-semibold text-center mb-6 animate__animated animate__shakeX">Sign in</h2>
 
         <form onSubmit={handleSubmit}>
           <label className="block mb-4">
@@ -71,7 +71,7 @@ function Signin() {
           <label className="block mb-4 relative">
             <span className="block mb-1 text-sm text-gray-600">Your password</span>
             <input type={showPassword ? "text" : "password"} name="password" className="border w-full min-w-0 px-3 py-2 rounded-md bg-gray-50" />
-            <button type="button" onClick={() => setShowPassword(!showPassword)} className="absolute bottom-1.5 right-1.5 border. p-1 text-xl">
+            <button type="button" onClick={() => setShowPassword(!showPassword)} className="absolute bottom-1.5 right-1.5 p-1 text-xl">
               {showPassword ? <Eye/> : <EyeSlash/>}
             </button>
           </label>

@@ -28,9 +28,9 @@ function UpdateProfile() {
           <title>SweetHome | Update Profile</title>
         </Helmet>
 
-        <h2 className="mb-8 md:mb-6 text-3xl md:text-4xl text-center font-semibold">Update Profile</h2>
+        <h2 className="mb-8 md:mb-6 text-3xl md:text-4xl text-center font-semibold animate__animated animate__fadeInDown">Update Profile</h2>
 
-        <form onSubmit={handleSubmit} className='max-w-md mx-auto'>
+        <form onSubmit={handleSubmit} className='max-w-md mx-auto animate__animated animate__fadeIn'>
           <figure className='mb-4 w-20 h-20 '>
             <img src={user.photoURL} className='w-full h-full rounded-full' alt="" />
           </figure>

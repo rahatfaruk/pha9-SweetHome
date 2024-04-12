@@ -2,7 +2,7 @@ import { Facebook, Instagram, Twitter } from "react-bootstrap-icons";
 
 function Socials() {
   return (  
-    <div className="bg-gray-100 p-8 my-8 text-center rounded-md flex gap-4 justify-center">
+    <div className="bg-gray-100 p-8 my-8 text-center rounded-md flex gap-4 justify-center animate__animated animate__slideInDown">
       <Link icon={<Facebook/>}/>
       <Link icon={<Twitter/>}/>
       <Link icon={<Instagram/>}/>

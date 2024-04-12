@@ -2,6 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } from 'react-router-dom'
 import './index.css'
+import 'animate.css'
 // comps & pages
 import App from './App.jsx'
 import ErrorPage from './pages/ErrorPage.jsx'

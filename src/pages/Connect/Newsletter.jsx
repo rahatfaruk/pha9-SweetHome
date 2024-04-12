@@ -1,6 +1,6 @@
 function Newsletter() {
   return (  
-    <div className="bg-gray-100 p-8 my-8 text-center rounded-md">
+    <div className="bg-gray-100 p-8 my-8 text-center rounded-md animate__animated animate__fadeInLeft">
       <h2 className="text-2xl md:text-3xl mb-2">Newsletter</h2>
       <p className="text-gray-500">Get notification for upcoming events and more! </p>
 

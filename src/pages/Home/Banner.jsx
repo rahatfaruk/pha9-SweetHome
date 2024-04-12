@@ -10,7 +10,7 @@ function Banner({estates}) {
 
   return (  
     <section className="px-4">
-      <div className="max-w-screen-xl py-6 mx-auto">
+      <div className="max-w-screen-xl py-6 mx-auto animate__animated animate__fadeIn">
         <Swiper
           spaceBetween={50}
           slidesPerView={1}
