@@ -1,9 +1,9 @@
 # Real Estate Website:
 ## About project:
-Programming Hero - my assignment 9. Focused on firebase login system (auth with react, protected route, loading etc)
+Programming Hero - my assignment 9. Real Estate website. Focused on firebase login system (auth with react, protected route, loading etc)
 
   - title: **SweetHome**
-  - category: Residential website
+  - category: Residential Estate
   - technology: react 18, tailwindcss, firebase 10, react router
   - npm packages: 
     - animate.css (for animation)
@@ -19,6 +19,7 @@ Programming Hero - my assignment 9. Focused on firebase login system (auth with 
   - user can update name, image url 
   - page loading feature
   - load & show estate details on another route
+  - verify password using regex
 
 ## Important Links:
   - assignment source (phero): https://github.com/ProgrammingHero1/B9A9-B9--Real-estate 
