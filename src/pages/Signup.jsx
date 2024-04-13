@@ -3,12 +3,13 @@ import { Eye, EyeSlash } from "react-bootstrap-icons";
 import { Link, Navigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { AuthContext } from "../context/AuthProvider";
+import { updateProfile } from "firebase/auth";
 
 function Signup() {
   const [showPassword, setShowPassword] = useState(false)
   const {user, updateProfileInfo, createUserWithEP} = useContext(AuthContext)
 
-  const handleSubmit = e => {
+  const handleSubmit = (e) => {
     e.preventDefault()
 
     const name = e.target.name.value.trim()
@@ -25,13 +26,12 @@ function Signup() {
     // validate password: lenght >= 6, has at least 1 uppercase, 1 lowercase
     else if( !passwordPassRegex.test(password) ) {
       toast.error('password must be at least 6 characters long, contains at least 1 uppercase and 1 lowercase letter')
-    }
+    } 
     // successful
     else {
       const createUser = async () => {
         try {
-          await createUserWithEP(email, password)
-          await updateProfileInfo(name, photoUrl)
+          await createUserWithEP(email, password, name, photoUrl)
           toast.success('successfully created account');
         } catch (error) {
           toast.error(error.message)
@@ -53,7 +53,7 @@ function Signup() {
         <form onSubmit={handleSubmit}>
           <label className="block mb-4">
             <span className="block mb-1 text-sm text-gray-600">Your Name</span>
-            <input type="name" name="name" className="border w-full min-w-0 px-3 py-2 rounded-md bg-gray-50" placeholder="Ali Khan" />
+            <input type="text" name="name" className="border w-full min-w-0 px-3 py-2 rounded-md bg-gray-50" placeholder="Ali Khan" />
           </label>
           <label className="block mb-4">
             <span className="block mb-1 text-sm text-gray-600">Your Photo url</span>

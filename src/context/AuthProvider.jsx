@@ -8,9 +8,16 @@ function AuthProvider({children}) {
   const [user, setUser] = useState(null)
   const [loading, setLoading] = useState(true)
 
-  const createUserWithEP = (email, password) => {
+  const createUserWithEP = async (email, password, displayName, photoURL) => {
     setLoading(true)
-    return createUserWithEmailAndPassword(authRef, email, password)
+    try {
+      const credential = await createUserWithEmailAndPassword(authRef, email, password)
+      await updateProfile(credential.user, {displayName, photoURL})
+      setUser(credential.user)  
+    } catch (error) {
+      throw Error(error.message)      
+    }
+    setLoading(false)
   }
   
   const signInWithEP = (email, password) => {
@@ -42,7 +49,10 @@ function AuthProvider({children}) {
   // update user onload && observe user
   useEffect(() => {
     const unsub = onAuthStateChanged(authRef, currUser => {
-      if (currUser) {
+      if (currUser && !currUser.displayName) {
+        return 
+      }
+      else if (currUser) {
         setUser(currUser)
       } else {
         setUser(null)
