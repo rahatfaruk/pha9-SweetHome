@@ -6,9 +6,9 @@ import { toast } from "react-toastify"
 
 const navLinks = [
   {id: 1, text: 'Home', path: '/'},
-  {id: 2, text: 'Update Profile', path: '/update-profile'},
-  {id: 3, text: 'Connect', path: '/connect'},
   {id: 4, text: 'Blogs', path: '/blogs'},
+  {id: 3, text: 'Connect', path: '/connect'},
+  {id: 2, text: 'Update Profile', path: '/update-profile'},
 ]
 
 export default function Navbar() {
