@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import { Check, CheckCircle, Phone, Telephone } from 'react-bootstrap-icons';
 import {useParams} from 'react-router-dom';
 import Agent from '../../comps/Agent';
 import Leaflet from './Leaflet';
