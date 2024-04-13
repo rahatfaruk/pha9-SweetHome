@@ -58,13 +58,17 @@ function EstateDetails() {
               <PropertyItem title={'price'} info={estate.price} />
               <PropertyItem title={'area'} info={estate.area} />
               <PropertyItem title={'location'} info={estate.location} />
+              <PropertyItem title={'facilities'} info={estate.facilities.join(', ')} />
             </ul>
           </div>
         </div>
-        {/* agent */}
         <div>
-          {agent && <Agent agent={agent} />}
-          <Leaflet />
+          {agent &&
+            <>
+              <Agent agent={agent} />
+              <Leaflet />
+            </> 
+          }
         </div>
       </div>
     </section>
