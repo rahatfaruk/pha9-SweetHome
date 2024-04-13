@@ -10,8 +10,9 @@ function Estates({estates}) {
         <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-6'>
           {estates.slice(0,6).map(estate => (
             <div key={estate.id} className="border shadow-md rounded-md animate__animated animate__fadeIn">
-              <figure className="p-2 pb-3">
+              <figure className="relative p-2 pb-3">
                 <img src={estate.image} className="w-full h-60 rounded-md object-cover object-bottom" alt="" />
+                <span className="absolute top-4 left-4 py-1.5 px-3 rounded-full text-xs font-medium bg-teal-100 text-teal-800">{estate.status}</span>
               </figure>
               <div className="px-4 pb-6">
                 <h3 className="text-xl font-semibold mb-1">{estate.estate_title}</h3>

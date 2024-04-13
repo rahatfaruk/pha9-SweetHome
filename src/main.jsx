@@ -12,6 +12,7 @@ import Home from './pages/Home'
 import EstateDetails from './pages/EstateDetails'
 import Connect from './pages/Connect'
 import UpdateProfile from './pages/UpdateProfile'
+import Blogs from './pages/Blogs'
 // context
 import AuthProvider from './context/AuthProvider'
 import RouteGuard from './comps/RouteGuard'
@@ -39,6 +40,10 @@ const router = createBrowserRouter(
       <Route 
         path='connect' 
         element={<RouteGuard> <Connect/> </RouteGuard>} 
+      />
+      <Route 
+        path='blogs' 
+        element={<RouteGuard> <Blogs/> </RouteGuard>} 
       />
       <Route path='signin' element={<Signin/>} />
       <Route path='signup' element={<Signup/>} />
