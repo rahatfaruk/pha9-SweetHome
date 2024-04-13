@@ -5,15 +5,16 @@ import './index.css'
 import 'animate.css'
 // comps & pages
 import App from './App.jsx'
-import ErrorPage from './pages/ErrorPage.jsx'
-import Signin from './pages/Signin.jsx'
-import Signup from './pages/Signup.jsx'
-import Home from './pages/Home/index.jsx'
+import ErrorPage from './pages/ErrorPage'
+import Signin from './pages/Signin'
+import Signup from './pages/Signup'
+import Home from './pages/Home'
 import EstateDetails from './pages/EstateDetails'
 import Connect from './pages/Connect'
-import UpdateProfile from './pages/UpdateProfile.jsx'
-import AuthProvider from './context/AuthProvider.jsx'
-import RouteGuard from './comps/RouteGuard.jsx'
+import UpdateProfile from './pages/UpdateProfile'
+// context
+import AuthProvider from './context/AuthProvider'
+import RouteGuard from './comps/RouteGuard'
 
 const router = createBrowserRouter(
   createRoutesFromElements(

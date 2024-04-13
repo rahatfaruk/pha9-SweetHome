@@ -6,26 +6,32 @@ export const AuthContext = createContext(null)
 
 function AuthProvider({children}) {
   const [user, setUser] = useState(null)
+  const [loading, setLoading] = useState(true)
 
   const createUserWithEP = (email, password) => {
+    setLoading(true)
     return createUserWithEmailAndPassword(authRef, email, password)
   }
   
   const signInWithEP = (email, password) => {
+    setLoading(true)
     return signInWithEmailAndPassword(authRef, email, password)
   }
   
   const signInWithGoogle = () => {
+    setLoading(true)
     const provider = new GoogleAuthProvider()
     return signInWithPopup(authRef, provider)
   }
   
   const signInWithGithub = () => {
+    setLoading(true)
     const provider = new GithubAuthProvider()
     return signInWithPopup(authRef, provider)
   }
 
   const logout = () => {
+    setLoading(true)
     return signOut(authRef)
   }
 
@@ -41,6 +47,7 @@ function AuthProvider({children}) {
       } else {
         setUser(null)
       }
+      setLoading(false)
     })
 
     // cleanup
@@ -50,7 +57,7 @@ function AuthProvider({children}) {
   }, [])
 
   return (  
-    <AuthContext.Provider value={ {user, setUser, createUserWithEP, logout, signInWithEP, signInWithGoogle, signInWithGithub, updateProfileInfo} }>
+    <AuthContext.Provider value={ {user, setUser, createUserWithEP, logout, signInWithEP, signInWithGoogle, signInWithGithub, updateProfileInfo, loading} }>
       {children}
     </AuthContext.Provider>
   );

@@ -2,6 +2,7 @@ import { useContext, useState } from "react"
 import { List } from "react-bootstrap-icons"
 import { Link, NavLink } from "react-router-dom"
 import { AuthContext } from "../context/AuthProvider"
+import { toast } from "react-toastify"
 
 const navLinks = [
   {id: 1, text: 'Home', path: '/'},
@@ -12,6 +13,12 @@ const navLinks = [
 export default function Navbar() {
   const [showLinks, setShowLinks] = useState(false)
   const {user, logout} = useContext(AuthContext)
+
+  const handleLogout = () => {
+    logout()
+    .then(() => toast.info('logged out') )
+    .catch(err => toast.error(err.message))
+  } 
 
   return (
     <nav className="px-4">
@@ -25,7 +32,7 @@ export default function Navbar() {
               <figure className="w-8 p-0.5 border rounded-full border-green-500">
                 <img src={user.photoURL} alt="" title={user.displayName} className="w-full rounded-full shadow-md" />
               </figure>
-              <button className="px-3 py-1 rounded-md text-white bg-red-800 hover:opacity-90" onClick={logout}>Logout</button>
+              <button className="px-3 py-1 rounded-md text-white bg-red-800 hover:opacity-90" onClick={handleLogout}>Logout</button>
             </div> 
           : 
             <Link to='/signin' className="inline-block px-3 py-1 rounded-md text-white bg-green-600 hover:opacity-90">Login</Link>
@@ -35,16 +42,18 @@ export default function Navbar() {
         </div>
 
         {/* links */}
-        <ul className={`${showLinks ? 'block': 'hidden'} md:flex justify-center col-span-2 md:col-span-1`}>
-          {navLinks.map(link => (
-            <li key={link.id}>
-              <NavLink to={link.path} className={({isActive}) => 
-                `block px-4 py-2 rounded-md md:bg-transparent hover:underline hover:bg-green-100  
-                ${isActive ? 'text-green-600 bg-green-100 font-bold underline' : ''}`
-              }>{link.text}</NavLink>
-            </li>
-          ))}
-        </ul>
+        {user && 
+          <ul className={`${showLinks ? 'block': 'hidden'} md:flex justify-center col-span-2 md:col-span-1`}>
+            {navLinks.map(link => (
+              <li key={link.id}>
+                <NavLink to={link.path} className={({isActive}) => 
+                  `block px-4 py-2 rounded-md md:bg-transparent hover:underline hover:bg-green-100  
+                  ${isActive ? 'text-green-600 bg-green-100 font-bold underline' : ''}`
+                }>{link.text}</NavLink>
+              </li>
+            ))}
+          </ul>
+        }
       </div>
     </nav>
   )

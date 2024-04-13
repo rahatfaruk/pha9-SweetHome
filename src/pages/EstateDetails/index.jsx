@@ -3,22 +3,25 @@ import { Check, CheckCircle, Phone, Telephone } from 'react-bootstrap-icons';
 import {useParams} from 'react-router-dom';
 import Agent from '../../comps/Agent';
 import Leaflet from './Leaflet';
+import Loading from '../../comps/Loading';
 
 function EstateDetails() {
   const [estate, setEstate] = useState(null)
   const [agent, setAgent] = useState(null)
   const [loading, setLoading] = useState(true)
   const {id} = useParams()
+  
+  if(loading && estate) {
+    setLoading(false)
+  }
 
   useEffect(() => {
     fetch('/estates.json')
     .then(res => res.json())
     .then(estates => {
-      setLoading(false)
       setEstate( estates.find(es => es.id == id) );
     })
     .catch(err => {
-      setLoading(false)
       alert(err.message)
       console.log(err.message)
     })
@@ -32,9 +35,7 @@ function EstateDetails() {
   }, [])
 
   if(loading) {
-    return (
-      <div className="animate-spin inline-block size-20 mx-auto border-[3px] border-current border-t-transparent text-blue-600 rounded-full dark:text-blue-500" />
-    )
+    return <Loading />
   }
   return (  
     <section className="px-4">
