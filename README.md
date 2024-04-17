@@ -17,14 +17,14 @@ Programming Hero - my assignment 9. Real Estate website. Focused on firebase log
   - verify password using regex (must contain 1 upper, 1 lower, >= 6 chars)
   - protected routes - only logged in user can access some pages
   - dynamic page title
-  - user can update name, image url 
-  - page loading feature
+  - user can update profile (name, image url) 
+  - show page loader while loading data
   - load & show estate details on another route
 
 ## Case study:
 This project took a great time to complete. 
 Case 1:- I have fallen on creating user with email and pass. Because, when I call createUser, the authState triggered before even update profile. So, I checked if user has a name in authState func; if so, i returned. Thus I could update user's profile and maually set user.  
-Case 2:- update User doesn't trigger onAuthStateChanged. So, after updating user profile; I update user state manually to sync with latest info. `setUser( {...user, displayName, photoURL} )`
+Case 2:- update User doesn't trigger onAuthStateChanged. So, after updating user profile; I have updated user state manually to show latest info. `setUser( {...user, displayName, photoURL} )`
 
 ## Important Links:
   - assignment source (phero): https://github.com/ProgrammingHero1/B9A9-B9--Real-estate 

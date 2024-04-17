@@ -26,7 +26,7 @@ const router = createBrowserRouter(
     >
       <Route 
         index 
-        element={<RouteGuard> <Home/> </RouteGuard>} 
+        element={<Home/>} 
         loader={() => fetch('/estates.json')} 
       />
       <Route 

@@ -24,7 +24,7 @@ export default function Navbar() {
   return (
     <nav className="px-4">
       <div className="max-w-screen-xl py-4 mx-auto border-b grid grid-cols-[auto_1fr] md:grid-cols-[auto_1fr_auto] gap-4">
-        <h1 className='text-2xl'>SweetHome</h1>
+        <h1 className='text-2xl'><Link to={'/'} className="text-green-600 font-bold">SweetHome</Link></h1>
 
         {/* toggler + action-btns */}
         <div className="flex items-center justify-end md:order-1 gap-4">

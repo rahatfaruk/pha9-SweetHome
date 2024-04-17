@@ -3,6 +3,7 @@ import { Eye, EyeSlash, Github, Google } from "react-bootstrap-icons";
 import { Link, Navigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { AuthContext } from "../context/AuthProvider";
+import { Helmet } from "react-helmet";
 
 function Signin() {
   const [showPassword, setShowPassword] = useState(false)
@@ -61,6 +62,9 @@ function Signin() {
   return (  
     <section className="px-4 md:px-6 py-8">
       <div className="max-w-md mx-auto p-4 border rounded-md shadow-md animate__animated animate__fadeIn">
+        <Helmet>
+          <title>SweetHome | Signin</title>
+        </Helmet>
         <h2 className="text-2xl md:text-3xl font-semibold text-center mb-6 animate__animated animate__shakeX">Sign in</h2>
 
         <form onSubmit={handleSubmit}>
