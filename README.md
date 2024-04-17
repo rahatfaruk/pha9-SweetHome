@@ -20,6 +20,7 @@ Programming Hero - my assignment 9. Real Estate website. Focused on firebase log
   - user can update profile (name, image url) 
   - show page loader while loading data
   - load & show estate details on another route
+  - user is redirected to the previous page (where he wanted to go) after signin
 
 ## Case study:
 This project took a great time to complete. 

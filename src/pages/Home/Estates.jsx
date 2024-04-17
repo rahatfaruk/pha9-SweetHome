@@ -1,14 +1,16 @@
+import { useState } from 'react';
 import {Textarea, GeoAlt} from 'react-bootstrap-icons';
 import { Link } from 'react-router-dom';
 
 function Estates({estates}) {
+  const [displayEstates, setDisplayEstates] = useState(estates.slice(0,6))
   return (  
     <section className="px-4">
       <div className="max-w-screen-xl mx-auto py-6">
         <h2 className="mb-4 md:mb-6 text-3xl md:text-4xl text-center font-semibold animate__animated animate__fadeInDown">Featured Estates</h2>
 
         <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-6'>
-          {estates.slice(0,6).map(estate => (
+          {displayEstates.map(estate => (
             <div key={estate.id} className="border shadow-md rounded-md animate__animated animate__fadeIn">
               <figure className="relative p-2 pb-3">
                 <img src={estate.image} className="w-full h-60 rounded-md object-cover object-bottom" alt="" />
@@ -26,7 +28,12 @@ function Estates({estates}) {
         </div>
         
         <div className='mt-8 text-center'>
-          <Link to='/' className='inline-block px-3 py-1 mt-2 rounded-md text-white bg-green-600 hover:opacity-90'>View all</Link>
+          {
+            displayEstates.length <= 6 ?
+            <button onClick={() => setDisplayEstates(estates)} className='inline-block px-3 py-1 mt-2 rounded-md text-white bg-green-600 hover:opacity-90'>View all</button>
+            :
+            <button onClick={() => setDisplayEstates(estates.slice(0,6))} className='inline-block px-3 py-1 mt-2 rounded-md text-white bg-green-600 hover:opacity-90'>View less</button>
+          }
         </div>
       </div>
     </section>

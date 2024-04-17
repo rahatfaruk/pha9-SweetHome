@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import { Eye, EyeSlash, Github, Google } from "react-bootstrap-icons";
-import { Link, Navigate } from "react-router-dom";
+import { Link, Navigate, useLocation } from "react-router-dom";
 import { toast } from "react-toastify";
 import { AuthContext } from "../context/AuthProvider";
 import { Helmet } from "react-helmet";
@@ -8,6 +8,7 @@ import { Helmet } from "react-helmet";
 function Signin() {
   const [showPassword, setShowPassword] = useState(false)
   const {user, signInWithEP, signInWithGoogle, signInWithGithub} = useContext(AuthContext)
+  const {state} = useLocation()
 
   const handleSubmit = e => {
     e.preventDefault()
@@ -57,7 +58,7 @@ function Signin() {
   }
 
   if (user) {
-    return <Navigate to='/'/>
+    return <Navigate to={state ? state : '/'} />
   }
   return (  
     <section className="px-4 md:px-6 py-8">
