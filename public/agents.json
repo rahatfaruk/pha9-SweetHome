@@ -1,7 +1,7 @@
 [
   {
     "id": "agent001",
-    "name": "John Smith",
+    "name": "Ali Hossain",
     "position": "Senior Sales Agent",
     "phone": "+1 (123) 456-7890",
     "image": "https://i.ibb.co/Kb97SQR/man-1.jpg",
@@ -13,7 +13,7 @@
   },
   {
     "id": "agent002",
-    "name": "Emily Johnson",
+    "name": "Brishty Jahan",
     "position": "Property Manager",
     "phone": "+1 (987) 654-3210",
     "image": "https://i.ibb.co/jMsRKvq/woman-1.jpg",
@@ -25,7 +25,7 @@
   },
   {
     "id": "agent003",
-    "name": "Michael Chen",
+    "name": "Karim Benzu",
     "position": "Leasing Consultant",
     "phone": "+1 (555) 123-4567",
     "image": "https://i.ibb.co/JcWncnm/man-2.jpg",
